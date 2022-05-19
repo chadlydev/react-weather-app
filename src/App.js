@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle, Theme } from './styles/global-styles';
+import styled, { ThemeProvider } from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
+
+const AppContainer = styled.div`
+    display: flex;
+`;
+
+const Left = styled.div`
+    width: 30vw;
+    height: 100vh;
+    background-color: ${props => props.theme.secondaryBackground};
+`;
+
+const Right = styled.div`
+    width: 70vw;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={Theme}>
+            <GlobalStyle />
+            <AppContainer>
+                <Left>
+                    <button type='button'>Change location</button>
+                    <button type='button'>$</button>
+                </Left>
+                <Right></Right>
+            </AppContainer>
+        </ThemeProvider>
+    );
 }
 
 export default App;
