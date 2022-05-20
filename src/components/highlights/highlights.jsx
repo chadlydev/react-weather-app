@@ -13,6 +13,8 @@ const Highlights = () => {
             <HighlightsGrid>
                 <WindStatus />
                 <Humidity />
+            </HighlightsGrid>
+            <HighlightsGrid>
                 <Visibility />
                 <AirPressure />
             </HighlightsGrid>

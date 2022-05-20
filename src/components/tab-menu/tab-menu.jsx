@@ -1,14 +1,23 @@
-import { TabMenuContainer, TabMenuLinks } from './tab-menu.styles';
+import {
+    TabMenuContainer,
+    TabMenuLinks,
+    NavContainer,
+} from './tab-menu.styles';
 import { Outlet } from 'react-router-dom';
 import { TabLink } from '../../styles/typography';
+import MetricSwitcher from '../metric-switcher/metric-switcher';
 
 const TabMenu = () => {
     return (
         <TabMenuContainer>
-            <TabMenuLinks>
-                <TabLink to='/'>Today</TabLink>
-                <TabLink to='forecast'>Next 5 days</TabLink>
-            </TabMenuLinks>
+            <NavContainer>
+                <TabMenuLinks>
+                    <TabLink to='/'>Today</TabLink>
+                    <TabLink to='forecast'>Next 5 days</TabLink>
+                </TabMenuLinks>
+                <MetricSwitcher />
+            </NavContainer>
+
             <div>
                 <Outlet />
             </div>

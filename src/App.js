@@ -1,6 +1,7 @@
+import { Routes, Route } from 'react-router-dom';
+
 import { GlobalStyle, Theme } from './styles/global.styles';
 import { ThemeProvider } from 'styled-components';
-import { Routes, Route } from 'react-router-dom';
 
 import Home from './routes/home/home';
 import TodayTab from './routes/today-tab/today-tab';

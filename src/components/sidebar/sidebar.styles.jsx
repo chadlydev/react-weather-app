@@ -2,29 +2,56 @@ import styled from 'styled-components';
 import { Flex, FlexColumn } from '../../styles/global.styles';
 
 export const SideBarContainer = styled(FlexColumn)`
-    width: 30vw;
+    min-width: 100vw;
     background-color: ${props => props.theme.secondaryBackground};
-    padding: 3.375rem;
+    padding: 2.375rem;
+    min-height: 100vh;
     align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: 43rem) {
+        min-height: 100%;
+    }
+
+    @media screen and (min-width: 62rem) {
+        min-width: clamp(21.25rem, 30vw, 30rem);
+        padding: 2.75rem;
+        position: fixed;
+        justify-content: space-between;
+        min-height: 100%;
+    }
 `;
 
 export const LocationButtonsContainer = styled(Flex)`
-    width: 100%;
+    min-width: 100%;
     justify-content: space-between;
-`;
-
-export const WeatherIconContainer = styled.div`
-    margin-top: 7.625rem;
-    position: relative;
 `;
 
 export const DescContainer = styled(FlexColumn)`
-    margin-top: 1rem;
     align-items: center;
-    gap: 0.25rem;
+
+    svg {
+        width: clamp(75%, 50vw, 100%);
+        height: clamp(75%, 50vw, 100%);
+    }
+
+    @media screen and (min-width: 43rem) {
+        svg {
+            margin-top: 2rem;
+            width: 120%;
+        }
+    }
 `;
 
-export const BodyContainer = styled(FlexColumn)`
-    justify-content: space-between;
-    height: 100%;
+export const DateLocationContainer = styled(FlexColumn)`
+    align-items: center;
+    gap: 2rem;
+    @media screen and (min-width: 43rem) {
+        margin-top: 6rem;
+    }
+`;
+
+export const LocationContainer = styled(Flex)`
+    gap: 1rem;
+    align-items: center;
 `;

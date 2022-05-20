@@ -4,7 +4,7 @@ export const Button = styled.button`
     font-family: 'Raleway', sans-serif;
     color: ${props => props.theme.primaryText};
     background-color: ${props => props.theme.primaryButton};
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     padding: 0.5rem 0.75rem;
     border: none;
 `;
@@ -21,6 +21,15 @@ export const RoundButton = styled.div`
     justify-content: center;
     align-items: center;
     background-color: ${props => props.theme.primaryButton};
+
+    @media screen and (min-width: 43rem) {
+        width: 39.5px;
+        height: 39.5px;
+
+        svg {
+            width: 200%;
+        }
+    }
 `;
 
 export const RoundButtonActive = styled(RoundButton)`

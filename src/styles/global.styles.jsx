@@ -35,6 +35,7 @@ a.active {
       padding-bottom: 1rem;
       border-bottom: 2px solid ${props => props.theme.secondaryBackground};
 }
+
 `;
 
 export const Flex = styled.div`
@@ -50,11 +51,12 @@ export const Grid = styled.div`
 `;
 
 export const TabContainer = styled(Grid)`
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
     grid-gap: 1.75rem;
 `;
 
 export const CardTempContainer = styled(Flex)`
     justify-content: space-between;
-    width: 80%;
+    gap: 0.5rem;
+    width: 70%;
 `;

@@ -25,23 +25,95 @@ const CloudsBgContainer = styled.div`
 
 const TopLeft = styled.div`
     position: absolute;
-    left: -8rem;
-    bottom: 8rem;
+    left: -70vw;
+    bottom: 8vw;
+
+    svg {
+        width: 55vw;
+    }
+
+    @media screen and (min-width: 43rem) {
+        left: -70vw;
+        bottom: -13vw;
+    }
+
+    @media screen and (min-width: 62rem) {
+        left: -23rem;
+        bottom: 7rem;
+
+        svg {
+            width: 150%;
+        }
+    }
 `;
 const TopRight = styled.div`
     position: absolute;
-    right: -13rem;
-    bottom: 6rem;
+    right: -80vw;
+    bottom: 7vw;
+
+    svg {
+        width: 60vw;
+    }
+
+    @media screen and (min-width: 43rem) {
+        right: -80vw;
+        bottom: -15vw;
+    }
+
+    @media screen and (min-width: 62rem) {
+        right: -16rem;
+        bottom: 8rem;
+
+        svg {
+            width: 150%;
+        }
+    }
 `;
 const BottomLeft = styled.div`
     position: absolute;
-    left: -12rem;
-    top: -8rem;
+    left: -80vw;
+    top: -18vw;
+
+    svg {
+        width: 60vw;
+    }
+
+    @media screen and (min-width: 43rem) {
+        left: -80vw;
+        top: -10vw;
+    }
+
+    @media screen and (min-width: 62rem) {
+        left: -25rem;
+        top: -13rem;
+
+        svg {
+            width: 150%;
+        }
+    }
 `;
+
 const BottomRight = styled.div`
     position: absolute;
-    right: -11rem;
-    top: -8rem;
+    right: -70vw;
+    top: -14vw;
+    svg {
+        width: 50vw;
+    }
+
+    @media screen and (min-width: 43rem) {
+        right: -70vw;
+        top: -2vw;
+    }
+
+    @media screen and (min-width: 62rem) {
+        right: -18rem;
+        top: -13rem;
+
+        svg {
+            width: 150%;
+        }
+    }
 `;
 
 const Cloud = () => {
@@ -55,8 +127,8 @@ const Cloud = () => {
         >
             <path
                 d='M177.969 107.599C177.99 106.973 178 106.345 178 105.714C178 74.9441 153.152 50 122.5 50C98.1849 50 77.5218 65.6968 70.0176 87.5468C64.6283 84.7236 58.4999 83.1274 52 83.1274C30.4609 83.1274 13 100.656 13 122.278C13 143.9 30.4609 161.429 52 161.429L122.575 161.429H164.5C180.24 161.429 193 148.619 193 132.818C193 121.908 186.917 112.424 177.969 107.599Z'
-                fill='#B8B8B8'
-                fill-opacity='0.04'
+                fill='#E7E7EB'
+                fill-opacity='0.03'
             />
         </svg>
     );

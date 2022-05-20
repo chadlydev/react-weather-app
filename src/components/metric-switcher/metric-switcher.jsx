@@ -1,17 +1,26 @@
-import { RoundButton, RoundButtonActive } from '../../styles/buttons';
-import { MetricSwitcherContainer } from './metric-switcher.styles';
-import { MetricSwitchText } from '../../styles/typography';
+import { Fragment } from 'react';
+import { SwitcherStyle } from './metric-switcher.styles';
 
 const MetricSwitcher = () => {
     return (
-        <MetricSwitcherContainer>
-            <RoundButtonActive>
-                <MetricSwitchText>°C</MetricSwitchText>
-            </RoundButtonActive>
-            <RoundButton>
-                <MetricSwitchText>°F</MetricSwitchText>
-            </RoundButton>
-        </MetricSwitcherContainer>
+        <Fragment>
+            <SwitcherStyle />
+            <div className='weather-container-extention'>
+                <p className='switch-label'>&deg;C</p>
+
+                <span className='switch-wrapper'>
+                    <input
+                        type='checkbox'
+                        className='switch'
+                        id='metric-system'
+                    />
+
+                    <label htmlFor='metric-system' className='switch-btn' />
+                </span>
+
+                <p className='switch-label'>&deg;F</p>
+            </div>
+        </Fragment>
     );
 };
 

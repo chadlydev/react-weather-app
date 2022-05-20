@@ -7,5 +7,10 @@ export const TabMenuContainer = styled(FlexColumn)`
 `;
 
 export const TabMenuLinks = styled(Flex)`
-    gap: 2rem;
+    gap: clamp(1rem, 1vw + 1rem, 2rem);
+`;
+
+export const NavContainer = styled(Flex)`
+    align-items: center;
+    justify-content: space-between;
 `;

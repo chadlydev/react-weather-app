@@ -1,9 +1,9 @@
 import {
     SideBarContainer,
     LocationButtonsContainer,
-    WeatherIconContainer,
-    BodyContainer,
+    DateLocationContainer,
     DescContainer,
+    LocationContainer,
 } from './sidebar.styles';
 import PartlyClouds from '../../assets/weather-icons/partly-clouds';
 import CurrentLocation from '../../assets/current-location';
@@ -15,6 +15,7 @@ import {
 } from '../../styles/typography';
 
 import { CloudsBg } from '../../assets/clouds-bg';
+import LocationDot from '../../assets/location-dot';
 
 import { Button, RoundButton } from '../../styles/buttons';
 
@@ -27,20 +28,21 @@ const Sidebar = () => {
                     <CurrentLocation />
                 </RoundButton>
             </LocationButtonsContainer>
-            <WeatherIconContainer>
+            <DescContainer>
                 <PartlyClouds />
                 <CloudsBg />
-            </WeatherIconContainer>
-            <SidebarTemp>
-                15<SidebarMetric>°C</SidebarMetric>
-            </SidebarTemp>
-            <BodyContainer>
-                <DescContainer>
-                    <SidebarWeatherDesc>Cloudy</SidebarWeatherDesc>
+                <SidebarTemp>
+                    15<SidebarMetric>°C</SidebarMetric>
+                </SidebarTemp>
+                <SidebarWeatherDesc>Cloudy</SidebarWeatherDesc>
+            </DescContainer>
+            <DateLocationContainer>
+                <SidebarSubtext>Today - Wed, 18 May</SidebarSubtext>
+                <LocationContainer>
+                    <LocationDot />
                     <SidebarSubtext>Amsterdam</SidebarSubtext>
-                </DescContainer>
-                <SidebarSubtext>Today - Web, 18 May</SidebarSubtext>
-            </BodyContainer>
+                </LocationContainer>
+            </DateLocationContainer>
         </SideBarContainer>
     );
 };
