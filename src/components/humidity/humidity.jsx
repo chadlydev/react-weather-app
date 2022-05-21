@@ -9,15 +9,22 @@ import {
 import {
     PercentageLineContainer,
     PercentageContainer,
-    Line,
 } from './humidity.styles';
 
+import { useContext } from 'react';
+import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
+import ProgressBar from '../progressBar/ProgressBar';
+
 const Humidity = () => {
+    const { weatherData } = useContext(WeatherDataContext);
+    const { main } = weatherData;
+
     return (
         <HighlightsCard>
             <CardTitle>Humidity</CardTitle>
             <HighlightsCardInfo>
-                82<HighlightsCardMetric> %</HighlightsCardMetric>
+                {main && main.humidity}
+                <HighlightsCardMetric> %</HighlightsCardMetric>
             </HighlightsCardInfo>
             <PercentageLineContainer>
                 <PercentageContainer>
@@ -25,7 +32,7 @@ const Humidity = () => {
                     <Percentage>50</Percentage>
                     <Percentage>100</Percentage>
                 </PercentageContainer>
-                <Line />
+                <ProgressBar value={main && main.humidity} />
             </PercentageLineContainer>
         </HighlightsCard>
     );

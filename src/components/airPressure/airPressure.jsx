@@ -5,12 +5,19 @@ import {
     HighlightsCardMetric,
 } from '../../styles/typography';
 
+import { useContext } from 'react';
+import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
+
 const AirPressure = () => {
+    const { weatherData } = useContext(WeatherDataContext);
+    const { main } = weatherData;
+
     return (
         <HighlightsCardSm>
             <CardTitle>Air pressure</CardTitle>
             <HighlightsCardInfo>
-                992<HighlightsCardMetric> mb</HighlightsCardMetric>
+                {main && main.pressure}
+                <HighlightsCardMetric> hPa</HighlightsCardMetric>
             </HighlightsCardInfo>
         </HighlightsCardSm>
     );

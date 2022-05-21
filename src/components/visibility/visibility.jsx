@@ -5,12 +5,21 @@ import {
     HighlightsCardMetric,
 } from '../../styles/typography';
 
+import { useContext } from 'react';
+import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
+
+import visibilityToKm from '../../helpers/visibilityToKm';
+
 const Visibility = () => {
+    const { weatherData } = useContext(WeatherDataContext);
+    const { visibility } = weatherData;
+
     return (
         <HighlightsCardSm>
             <CardTitle>Visibility</CardTitle>
             <HighlightsCardInfo>
-                4,1<HighlightsCardMetric> km</HighlightsCardMetric>
+                {visibility && visibilityToKm(visibility)}
+                <HighlightsCardMetric> km</HighlightsCardMetric>
             </HighlightsCardInfo>
         </HighlightsCardSm>
     );
