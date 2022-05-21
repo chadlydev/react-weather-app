@@ -1,8 +1,3 @@
-import ThunderRain from '../../assets/weatherIcons/thunderstorm-showers';
-import Sun from '../../assets/weatherIcons/sun';
-import Cloud from '../../assets/weatherIcons/cloud';
-import Wind from '../../assets/weatherIcons/wind';
-
 import {
     CardTitle,
     MaxTemp,
@@ -11,76 +6,63 @@ import {
     MinTempMetric,
 } from '../../styles/typography';
 
+import { IconContainer } from './forecastTab.styles';
+
 import { TabCard } from '../../components/card/card.styles';
 import { CardTempContainer, TabContainer } from '../../styles/globalStyles';
 
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
+
+import dayToString from '../../helpers/dayToString';
+import kelvinToCelsius from '../../helpers/kelvinToCelsius';
+import weatherIconMapper from '../../helpers/weatherIconMapper';
+
 const ForecastTab = () => {
+    const { weatherData } = useContext(WeatherDataContext);
+    const { coord } = weatherData;
+    const [forecastData, setForecastData] = useState([]);
+
+    useEffect(() => {
+        const FetchData = async () => {
+            try {
+                const result = await axios.get(
+                    `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely,current,hourly&appid=${process.env.REACT_APP_API_KEY}`
+                );
+                setForecastData(result.data.daily.slice(1, 6));
+                console.log(forecastData);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        coord && FetchData();
+    }, [coord]);
+
     return (
         <TabContainer>
-            <TabCard>
-                <CardTitle>Tomorrow</CardTitle>
-                <ThunderRain />
-
-                <CardTempContainer>
-                    <MaxTemp>
-                        16<MaxTempMetric>°C</MaxTempMetric>
-                    </MaxTemp>
-                    <MinTemp>
-                        11<MinTempMetric>°C</MinTempMetric>
-                    </MinTemp>
-                </CardTempContainer>
-            </TabCard>
-            <TabCard>
-                <CardTitle>Thursday</CardTitle>
-                <Sun />
-                <CardTempContainer>
-                    <MaxTemp>
-                        20<MaxTempMetric>°C</MaxTempMetric>
-                    </MaxTemp>
-                    <MinTemp>
-                        14<MinTempMetric>°C</MinTempMetric>
-                    </MinTemp>
-                </CardTempContainer>
-            </TabCard>
-
-            <TabCard>
-                <CardTitle>Friday</CardTitle>
-                <Cloud />
-                <CardTempContainer>
-                    <MaxTemp>
-                        18<MaxTempMetric>°C</MaxTempMetric>
-                    </MaxTemp>
-                    <MinTemp>
-                        13<MinTempMetric>°C</MinTempMetric>
-                    </MinTemp>
-                </CardTempContainer>
-            </TabCard>
-
-            <TabCard>
-                <CardTitle>Saturday</CardTitle>
-                <Cloud />
-                <CardTempContainer>
-                    <MaxTemp>
-                        17<MaxTempMetric>°C</MaxTempMetric>
-                    </MaxTemp>
-                    <MinTemp>
-                        13<MinTempMetric>°C</MinTempMetric>
-                    </MinTemp>
-                </CardTempContainer>
-            </TabCard>
-
-            <TabCard>
-                <CardTitle>Sunday</CardTitle>
-                <Wind />
-                <CardTempContainer>
-                    <MaxTemp>
-                        22<MaxTempMetric>°C</MaxTempMetric>
-                    </MaxTemp>
-                    <MinTemp>
-                        16<MinTempMetric>°C</MinTempMetric>
-                    </MinTemp>
-                </CardTempContainer>
-            </TabCard>
+            {forecastData &&
+                forecastData.map(day => {
+                    return (
+                        <TabCard key={day.dt}>
+                            <CardTitle>{dayToString(day.dt)}</CardTitle>
+                            <IconContainer>
+                                {weatherIconMapper(day.weather[0].main)}
+                            </IconContainer>
+                            <CardTempContainer>
+                                <MaxTemp>
+                                    {kelvinToCelsius(day.temp.max)}
+                                    <MaxTempMetric>°C</MaxTempMetric>
+                                </MaxTemp>
+                                <MinTemp>
+                                    {kelvinToCelsius(day.temp.min)}
+                                    <MinTempMetric>°C</MinTempMetric>
+                                </MinTemp>
+                            </CardTempContainer>
+                        </TabCard>
+                    );
+                })}
         </TabContainer>
     );
 };

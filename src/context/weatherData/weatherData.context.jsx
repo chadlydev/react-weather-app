@@ -23,7 +23,7 @@ export const WeatherDataContextProvider = ({ children }) => {
             }
         };
 
-        FetchData();
+        location && FetchData();
     }, [location]);
 
     return (
