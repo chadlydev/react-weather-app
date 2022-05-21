@@ -79,3 +79,28 @@ export const Percentage = styled(SidebarMetric)`
     font-size: 1rem;
     font-weight: 700;
 `;
+
+// -------------------- SEARCH MENU
+
+export const ResultText = styled.span`
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    text-align: start;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border: 1px solid transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        border: 1px solid ${props => props.theme.borderColor};
+    }
+
+    &:hover:after {
+        content: ' \\203A';
+        color: ${props => props.theme.borderColor};
+        position: absolute;
+        right: 1rem;
+        font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+    }
+`;

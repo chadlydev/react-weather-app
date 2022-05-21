@@ -1,10 +1,10 @@
 import { HighlightsContainer, HighlightsGrid } from './highlights.styles';
 import { Title } from '../../styles/typography';
 
-import WindStatus from '../wind-status/wind-status';
+import WindStatus from '../windStatus/windStatus';
 import Humidity from '../humidity/humidity';
 import Visibility from '../visibility/visibility';
-import AirPressure from '../air-pressure/air-pressure';
+import AirPressure from '../airPressure/airPressure';
 
 const Highlights = () => {
     return (

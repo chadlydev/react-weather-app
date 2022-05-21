@@ -7,6 +7,8 @@ export const Button = styled.button`
     font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     padding: 0.5rem 0.75rem;
     border: none;
+    cursor: pointer;
+    z-index: 1;
 `;
 
 export const SearchButton = styled(Button)`
@@ -21,6 +23,12 @@ export const RoundButton = styled.div`
     justify-content: center;
     align-items: center;
     background-color: ${props => props.theme.primaryButton};
+    padding: 0.25rem;
+
+    svg {
+        width: 36.38px;
+        height: 42.14px;
+    }
 
     @media screen and (min-width: 43rem) {
         width: 39.5px;

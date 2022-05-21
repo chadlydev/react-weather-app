@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { GlobalStyle, Theme } from './styles/global.styles';
+import { GlobalStyle, Theme } from './styles/globalStyles';
 import { ThemeProvider } from 'styled-components';
 
 import Home from './routes/home/home';
-import TodayTab from './routes/today-tab/today-tab';
-import ForecastTab from './routes/forecast-tab/forecast-tab';
+import TodayTab from './routes/todayTab/todayTab';
+import ForecastTab from './routes/forecastTab/forecastTab';
 
 function App() {
     return (

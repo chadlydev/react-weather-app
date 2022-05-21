@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexColumn, Grid } from '../../styles/global.styles';
+import { FlexColumn, Grid } from '../../styles/globalStyles';
 import { Card } from '../card/card.styles';
 
 export const HighlightsContainer = styled(FlexColumn)`
@@ -15,7 +15,7 @@ export const HighlightsGrid = styled(Grid)`
 
 export const HighlightsCard = styled(Card)`
     height: 13rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
     align-items: center;
     justify-content: space-between;
     box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.3);

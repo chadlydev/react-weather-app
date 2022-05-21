@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexColumn } from '../../styles/global.styles';
+import { FlexColumn } from '../../styles/globalStyles';
 
 export const Card = styled(FlexColumn)`
     background-color: ${props => props.theme.secondaryBackground};

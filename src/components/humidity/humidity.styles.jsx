@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexColumn, Flex } from '../../styles/global.styles';
+import { FlexColumn, Flex } from '../../styles/globalStyles';
 
 export const PercentageLineContainer = styled(FlexColumn)`
     align-items: center;

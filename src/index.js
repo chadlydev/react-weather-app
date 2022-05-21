@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { SearchMenuContextProvider } from './context/searchMenu/searchMenu.context';
+import { WeatherDataContextProvider } from './context/weatherData/weatherData.context';
+import { LocationContextProvider } from './context/location/location.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App />
+            <SearchMenuContextProvider>
+                <LocationContextProvider>
+                    <WeatherDataContextProvider>
+                        <App />
+                    </WeatherDataContextProvider>
+                </LocationContextProvider>
+            </SearchMenuContextProvider>
         </BrowserRouter>
     </React.StrictMode>
 );

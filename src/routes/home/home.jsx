@@ -1,14 +1,18 @@
 import { HomeContainer, MainContainer } from './home.styles';
-import Sidebar from '../../components/sidebar/sidebar';
-import MetricSwitcher from '../../components/metric-switcher/metric-switcher';
-import TabMenu from '../../components/tab-menu/tab-menu';
+import Sidebar from '../../components/sideBar/sideBar';
+import TabMenu from '../../components/tabMenu/tabMenu';
 import Highlights from '../../components/highlights/highlights';
-import SearchMenu from '../../components/search-menu/search-menu';
+import SearchMenu from '../../components/searchMenu/searchMenu';
+
+import { useContext } from 'react';
+import { SearchMenuContext } from '../../context/searchMenu/searchMenu.context';
 
 const Home = () => {
+    const { searchMenu } = useContext(SearchMenuContext);
+
     return (
         <HomeContainer>
-            <SearchMenu />
+            {searchMenu && <SearchMenu />}
             <Sidebar />
             <MainContainer>
                 <TabMenu />
