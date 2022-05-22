@@ -7,6 +7,7 @@ import { SearchMenuContextProvider } from './context/searchMenu/searchMenu.conte
 import { WeatherDataContextProvider } from './context/weatherData/weatherData.context';
 import { LocationContextProvider } from './context/location/location.context';
 import { GeoLocationContextProvider } from './context/geoLocation/geoLocation.context';
+import { TempMetricContextProvider } from './context/tempMetric/tempMetric.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,9 @@ root.render(
                 <GeoLocationContextProvider>
                     <LocationContextProvider>
                         <WeatherDataContextProvider>
-                            <App />
+                            <TempMetricContextProvider>
+                                <App />
+                            </TempMetricContextProvider>
                         </WeatherDataContextProvider>
                     </LocationContextProvider>
                 </GeoLocationContextProvider>

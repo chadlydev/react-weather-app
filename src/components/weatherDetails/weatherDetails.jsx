@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { TempMetricContext } from '../../context/tempMetric/tempMetric.context';
+
 import {
     CardTitle,
     WeatherDesc,
@@ -14,24 +17,32 @@ import {
 } from './weatherDetails.styles';
 
 import weatherIconMapper from '../../helpers/weatherIconMapper';
-import kelvinToCelsius from '../../helpers/kelvinToCelsius';
+import DisplayTemp from '../../helpers/displayTemp';
 
-const WeatherDetails = ({ timestamp, weatherType, tempMax, tempMin }) => {
+const WeatherDetails = ({
+    timestamp,
+    weatherType,
+    weatherId,
+    tempMax,
+    tempMin,
+}) => {
+    const { fahrenheit } = useContext(TempMetricContext);
+
     return (
         <TabCard key={timestamp}>
             <CardTitle>{timestamp}</CardTitle>
-            <IconContainer>{weatherIconMapper(weatherType)}</IconContainer>
+            <IconContainer>{weatherIconMapper(weatherId)}</IconContainer>
             <WeatherDesc>{weatherType}</WeatherDesc>
             <CardTempContainer>
                 <MaxTemp>
-                    {kelvinToCelsius(tempMax)}
-                    <MaxTempMetric>°C</MaxTempMetric>
+                    <DisplayTemp temp={tempMax} />
+                    <MaxTempMetric>°{fahrenheit ? 'F' : 'C'}</MaxTempMetric>
                 </MaxTemp>
 
                 {tempMin && (
                     <MinTemp>
-                        {kelvinToCelsius(tempMin)}
-                        <MinTempMetric>°C</MinTempMetric>
+                        <DisplayTemp temp={tempMin} />
+                        <MinTempMetric>°{fahrenheit ? 'F' : 'C'}</MinTempMetric>
                     </MinTemp>
                 )}
             </CardTempContainer>

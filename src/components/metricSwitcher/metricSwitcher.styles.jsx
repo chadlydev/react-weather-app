@@ -47,6 +47,7 @@ export const SwitcherStyle = createGlobalStyle`
 	border-radius: 1rem;
 	padding: 0.125rem;
 	transition: all .4s ease;
+	z-index: 1;
 
     @media screen and (min-width: 43rem) {
         width: 2.5rem;

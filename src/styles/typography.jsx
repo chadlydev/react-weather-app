@@ -86,7 +86,7 @@ export const Percentage = styled(SidebarMetric)`
 // -------------------- SEARCH MENU
 
 export const ResultText = styled.span`
-    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     text-align: start;
     width: 100%;
     padding: 1rem 0.5rem;
@@ -94,6 +94,7 @@ export const ResultText = styled.span`
     position: relative;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     &:hover {
         border: 1px solid ${props => props.theme.borderColor};

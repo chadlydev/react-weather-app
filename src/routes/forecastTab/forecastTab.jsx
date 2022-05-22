@@ -18,7 +18,6 @@ const ForecastTab = () => {
                     `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely,current,hourly&appid=${process.env.REACT_APP_API_KEY}`
                 );
                 setForecastData(result.data.daily.slice(1, 6));
-                console.log(forecastData);
             } catch (e) {
                 console.error(e);
             }
@@ -36,6 +35,7 @@ const ForecastTab = () => {
                             key={day.dt}
                             timestamp={dayToString(day.dt)}
                             weatherType={day.weather[0].main}
+                            weatherId={day.weather[0].id}
                             tempMax={day.temp.max}
                             tempMin={day.temp.min}
                         />

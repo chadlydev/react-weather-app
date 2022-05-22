@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { LocationContext } from '../../context/location/location.context';
 import { SearchMenuContext } from '../../context/searchMenu/searchMenu.context';
 
@@ -11,15 +11,26 @@ import {
 
 import { ResultText } from '../../styles/typography';
 import { SearchButton } from '../../styles/buttons';
+import capFirstLetter from '../../helpers/capFirstLetter';
 
 const SearchMenu = () => {
-    const [query, setQuery] = useState('');
     const { set } = useContext(LocationContext);
     const { toggle } = useContext(SearchMenuContext);
+    const cityList = require('../../assets/city.list.min.json');
+    const [cities, setCities] = useState([]);
+
+    useEffect(() => {
+        cityList.map(city => {
+            city.description = `${capFirstLetter(city.name)}${
+                city.state ? `, ${city.state}` : ''
+            }, ${city.country}`;
+            return city;
+        });
+    }, []);
 
     function onFormSubmit(e) {
         e.preventDefault();
-        set(query);
+        set(cities[0].description);
         toggle();
     }
 
@@ -28,16 +39,42 @@ const SearchMenu = () => {
             <FormContainer onSubmit={onFormSubmit}>
                 <SearchInput
                     placeholder='&#128269; Search location'
-                    value={query}
-                    onChange={e => setQuery(e.target.value)}
+                    onSelect={e => {
+                        if (e.target.value) {
+                            const value = capFirstLetter(e.target.value);
+
+                            if (value.length >= 4) {
+                                const possibleCities = cityList
+                                    .filter(city =>
+                                        city.description.includes(value)
+                                    )
+                                    .slice(0, 13);
+                                setCities(
+                                    possibleCities.map(city => ({
+                                        description: city.description,
+                                        id: city.id,
+                                    }))
+                                );
+                            }
+                        }
+                    }}
                 />
                 <SearchButton type='submit'>Search</SearchButton>
             </FormContainer>
             <ResultsContainer>
-                <ResultText>Amsterdam</ResultText>
-                <ResultText>London</ResultText>
-                <ResultText>Paris</ResultText>
-                <ResultText>Barcelona</ResultText>
+                {cities.slice(0, 13).map(city => {
+                    return (
+                        <ResultText
+                            onClick={() => {
+                                set(city.description);
+                                toggle();
+                            }}
+                            key={city.id}
+                        >
+                            {city.description}
+                        </ResultText>
+                    );
+                })}
             </ResultsContainer>
         </SearchMenuContainer>
     );

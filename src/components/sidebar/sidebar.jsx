@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { SearchMenuContext } from '../../context/searchMenu/searchMenu.context';
 import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
 import { GeoLocationContext } from '../../context/geoLocation/geoLocation.context';
+import { TempMetricContext } from '../../context/tempMetric/tempMetric.context';
 
 import {
     SideBarContainer,
@@ -11,7 +12,6 @@ import {
     LocationContainer,
 } from './sideBar.styles';
 
-import { ReactComponent as CurrentLocation } from '../../assets/currentLocation.svg';
 import {
     SidebarTemp,
     SidebarMetric,
@@ -20,18 +20,21 @@ import {
 } from '../../styles/typography';
 
 import { CloudsBg } from '../../assets/cloudsBg';
+import { ReactComponent as CurrentLocation } from '../../assets/currentLocation.svg';
 import { ReactComponent as LocationDot } from '../../assets/locationDot.svg';
-
 import { Button, RoundButton } from '../../styles/buttons';
-import kelvinToCelsius from '../../helpers/kelvinToCelsius';
+
 import weatherIconMapper from '../../helpers/weatherIconMapper';
 import dateToString from '../../helpers/dateToString';
+import DisplayTemp from '../../helpers/displayTemp';
 
 const Sidebar = () => {
     const { toggle } = useContext(SearchMenuContext);
-    const { weatherData } = useContext(WeatherDataContext);
-    const { weather, main, name } = weatherData;
     const { set } = useContext(GeoLocationContext);
+    const { fahrenheit } = useContext(TempMetricContext);
+    const {
+        weatherData: { weather, main, name },
+    } = useContext(WeatherDataContext);
 
     const myIP = location => {
         const { latitude, longitude } = location.coords;
@@ -57,11 +60,11 @@ const Sidebar = () => {
                 </RoundButton>
             </LocationButtonsContainer>
             <DescContainer>
-                {weather && weatherIconMapper(weather[0].main)}
+                {weather && weatherIconMapper(weather[0].id)}
                 <CloudsBg />
                 <SidebarTemp>
-                    {weather && kelvinToCelsius(main.temp)}
-                    <SidebarMetric>°C</SidebarMetric>
+                    {weather && <DisplayTemp temp={main.temp} />}
+                    <SidebarMetric>°{fahrenheit ? 'F' : 'C'}</SidebarMetric>
                 </SidebarTemp>
                 <SidebarWeatherDesc>
                     {weather && weather[0].main}

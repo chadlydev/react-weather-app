@@ -19,7 +19,7 @@ export const WeatherDataContextProvider = ({ children }) => {
                 const result = await axios.get(
                     `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_API_KEY}`
                 );
-                console.log(result.data);
+
                 setWeatherData(result.data);
             } catch (e) {
                 console.error(e);
@@ -35,7 +35,7 @@ export const WeatherDataContextProvider = ({ children }) => {
                 const result = await axios.get(
                     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_API_KEY}`
                 );
-                console.log(result.data);
+
                 setWeatherData(result.data);
             } catch (e) {
                 console.error(e);

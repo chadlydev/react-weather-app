@@ -10,7 +10,7 @@ export const SideBarContainer = styled(FlexColumn)`
     justify-content: space-between;
 
     @media screen and (min-width: 43rem) {
-        min-height: 100%;
+        min-height: 70vh;
     }
 
     @media screen and (min-width: 62rem) {
@@ -33,7 +33,7 @@ export const DescContainer = styled(FlexColumn)`
     svg {
         width: clamp(75%, 70vw, 100%);
         height: clamp(75%, 50vw, 100%);
-        margin-bottom: -2rem;
+        margin-bottom: -1rem;
     }
 
     @media screen and (min-width: 43rem) {

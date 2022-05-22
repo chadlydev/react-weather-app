@@ -1,7 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { SwitcherStyle } from './metricSwitcher.styles';
+import { TempMetricContext } from '../../context/tempMetric/tempMetric.context';
 
 const MetricSwitcher = () => {
+    const { toggle } = useContext(TempMetricContext);
+
     return (
         <Fragment>
             <SwitcherStyle />
@@ -13,6 +16,7 @@ const MetricSwitcher = () => {
                         type='checkbox'
                         className='switch'
                         id='metric-system'
+                        onClick={toggle}
                     />
 
                     <label htmlFor='metric-system' className='switch-btn' />

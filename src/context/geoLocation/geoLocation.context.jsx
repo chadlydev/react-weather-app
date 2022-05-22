@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { createContext } from 'react';
 
 export const GeoLocationContext = createContext({
-    geoLocation: {},
+    geoLocation: {
+        latitude: '',
+        longitude: '',
+    },
     set: () => {},
 });
 
@@ -18,8 +21,6 @@ export const GeoLocationContextProvider = ({ children }) => {
             longitude: lon,
         });
     };
-
-    console.log(geoLocation);
 
     return (
         <GeoLocationContext.Provider value={{ geoLocation, set }}>

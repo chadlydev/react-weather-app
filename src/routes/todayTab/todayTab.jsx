@@ -25,7 +25,6 @@ const TodayTab = () => {
                     result.data.hourly[9],
                     result.data.hourly[11],
                 ]);
-                console.log(forecastData);
             } catch (e) {
                 console.error(e);
             }
@@ -43,6 +42,7 @@ const TodayTab = () => {
                             key={hour.dt}
                             timestamp={timeToString(hour.dt)}
                             weatherType={hour.weather[0].main}
+                            weatherId={hour.weather[0].id}
                             tempMax={hour.temp}
                         />
                     );
