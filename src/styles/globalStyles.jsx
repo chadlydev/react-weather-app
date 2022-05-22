@@ -49,14 +49,3 @@ export const FlexColumn = styled(Flex)`
 export const Grid = styled.div`
     display: grid;
 `;
-
-export const TabContainer = styled(Grid)`
-    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-    grid-gap: 1.75rem;
-`;
-
-export const CardTempContainer = styled(Flex)`
-    justify-content: space-between;
-    gap: 0.5rem;
-    width: 70%;
-`;

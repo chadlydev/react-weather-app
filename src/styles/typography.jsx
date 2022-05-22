@@ -39,15 +39,18 @@ export const Title = styled.h2`
     font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
 `;
 
-// -------------------- FORECAST
+// -------------------- WEATHER DETAILS
 
 export const CardTitle = styled.span`
     font-weight: 500;
-    font-size: 1rem;
+`;
+
+export const WeatherDesc = styled(CardTitle)`
+    font-weight: 700;
 `;
 
 export const MaxTemp = styled(CardTitle)`
-    /* font-size: 1.25rem; */
+    font-size: 1.25rem;
     font-weight: 600;
 `;
 

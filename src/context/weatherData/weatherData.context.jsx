@@ -14,7 +14,7 @@ export const WeatherDataContextProvider = ({ children }) => {
         const FetchData = async () => {
             try {
                 const result = await axios.get(
-                    `https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${process.env.REACT_APP_API_KEY}`
+                    `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_API_KEY}`
                 );
                 console.log(result.data);
                 setWeatherData(result.data);
