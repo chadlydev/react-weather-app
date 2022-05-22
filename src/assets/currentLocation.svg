@@ -1,6 +1,4 @@
-const CurrentLocation = () => {
-    return (
-        <svg
+<svg
             width='24'
             height='24'
             viewBox='0 0 24 24'
@@ -16,7 +14,3 @@ const CurrentLocation = () => {
                 fill='#E7E7EB'
             />
         </svg>
-    );
-};
-
-export default CurrentLocation;

@@ -1,6 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SearchMenuContext } from '../../context/searchMenu/searchMenu.context';
 import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
+import { GeoLocationContext } from '../../context/geoLocation/geoLocation.context';
 
 import {
     SideBarContainer,
@@ -10,7 +11,7 @@ import {
     LocationContainer,
 } from './sideBar.styles';
 
-import CurrentLocation from '../../assets/currentLocation';
+import { ReactComponent as CurrentLocation } from '../../assets/currentLocation.svg';
 import {
     SidebarTemp,
     SidebarMetric,
@@ -19,18 +20,27 @@ import {
 } from '../../styles/typography';
 
 import { CloudsBg } from '../../assets/cloudsBg';
-import LocationDot from '../../assets/locationDot';
+import { ReactComponent as LocationDot } from '../../assets/locationDot.svg';
 
 import { Button, RoundButton } from '../../styles/buttons';
 import kelvinToCelsius from '../../helpers/kelvinToCelsius';
-import dayToString from '../../helpers/dayToString';
 import weatherIconMapper from '../../helpers/weatherIconMapper';
 import dateToString from '../../helpers/dateToString';
 
 const Sidebar = () => {
     const { toggle } = useContext(SearchMenuContext);
     const { weatherData } = useContext(WeatherDataContext);
-    const { weather, main, name, dt } = weatherData;
+    const { weather, main, name } = weatherData;
+    const { set } = useContext(GeoLocationContext);
+
+    const myIP = location => {
+        const { latitude, longitude } = location.coords;
+        set(latitude, longitude);
+    };
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(myIP);
+    }, []);
 
     return (
         <SideBarContainer>
@@ -38,7 +48,11 @@ const Sidebar = () => {
                 <Button type='button' onClick={toggle}>
                     Change location
                 </Button>
-                <RoundButton>
+                <RoundButton
+                    onClick={() =>
+                        navigator.geolocation.getCurrentPosition(myIP)
+                    }
+                >
                     <CurrentLocation />
                 </RoundButton>
             </LocationButtonsContainer>
@@ -54,9 +68,7 @@ const Sidebar = () => {
                 </SidebarWeatherDesc>
             </DescContainer>
             <DateLocationContainer>
-                <SidebarSubtext>
-                    {dayToString(dt)} - {dateToString()}
-                </SidebarSubtext>
+                <SidebarSubtext>{dateToString()}</SidebarSubtext>
                 <LocationContainer>
                     <LocationDot />
                     <SidebarSubtext>{name}</SidebarSubtext>

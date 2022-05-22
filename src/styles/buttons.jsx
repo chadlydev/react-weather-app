@@ -24,6 +24,8 @@ export const RoundButton = styled.div`
     align-items: center;
     background-color: ${props => props.theme.primaryButton};
     padding: 0.25rem;
+    cursor: pointer;
+    z-index: 1;
 
     svg {
         width: 36.38px;

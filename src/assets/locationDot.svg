@@ -1,6 +1,4 @@
-const LocationDot = () => {
-    return (
-        <svg
+<svg
             width='20'
             height='26'
             viewBox='0 0 20 26'
@@ -19,7 +17,5 @@ const LocationDot = () => {
                 </clipPath>
             </defs>
         </svg>
-    );
-};
 
-export default LocationDot;
+

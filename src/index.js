@@ -6,17 +6,20 @@ import { BrowserRouter } from 'react-router-dom';
 import { SearchMenuContextProvider } from './context/searchMenu/searchMenu.context';
 import { WeatherDataContextProvider } from './context/weatherData/weatherData.context';
 import { LocationContextProvider } from './context/location/location.context';
+import { GeoLocationContextProvider } from './context/geoLocation/geoLocation.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <SearchMenuContextProvider>
-                <LocationContextProvider>
-                    <WeatherDataContextProvider>
-                        <App />
-                    </WeatherDataContextProvider>
-                </LocationContextProvider>
+                <GeoLocationContextProvider>
+                    <LocationContextProvider>
+                        <WeatherDataContextProvider>
+                            <App />
+                        </WeatherDataContextProvider>
+                    </LocationContextProvider>
+                </GeoLocationContextProvider>
             </SearchMenuContextProvider>
         </BrowserRouter>
     </React.StrictMode>
