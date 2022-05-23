@@ -10,7 +10,7 @@ import {
     DateLocationContainer,
     DescContainer,
     LocationContainer,
-} from './sideBar.styles';
+} from './SideBar.styles';
 
 import {
     SidebarTemp,
