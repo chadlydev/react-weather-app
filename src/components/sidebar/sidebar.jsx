@@ -10,7 +10,7 @@ import {
     DateLocationContainer,
     DescContainer,
     LocationContainer,
-} from './SideBar.styles';
+} from './sideBar.styles';
 
 import {
     SidebarTemp,
@@ -26,7 +26,7 @@ import { Button, RoundButton } from '../../styles/buttons';
 
 import weatherIconMapper from '../../helpers/weatherIconMapper';
 import dateToString from '../../helpers/dateToString';
-import DisplayTemp from '../../helpers/displayTemp';
+import DisplayTemp from '../../helpers/DisplayTemp';
 
 const SideBar = () => {
     const { toggle } = useContext(SearchMenuContext);

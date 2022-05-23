@@ -1,5 +1,5 @@
 import { HomeContainer, MainContainer } from './home.styles';
-import SideBar from '../../components/SideBar/SideBar';
+import SideBar from '../../components/sideBar/sideBar';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import Highlights from '../../components/highlights/highlights';
 import SearchMenu from '../../components/searchMenu/searchMenu';

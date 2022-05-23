@@ -17,7 +17,7 @@ import {
 } from './weatherDetails.styles';
 
 import weatherIconMapper from '../../helpers/weatherIconMapper';
-import DisplayTemp from '../../helpers/displayTemp';
+import DisplayTemp from '../../helpers/DisplayTemp';
 
 const WeatherDetails = ({
     timestamp,

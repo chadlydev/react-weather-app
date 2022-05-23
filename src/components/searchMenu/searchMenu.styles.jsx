@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Grid } from '../../styles/globalStyles';
-import { SideBarContainer } from '../SideBar/SideBar.styles';
+import { SideBarContainer } from '../sideBar/sideBar.styles';
 
 export const SearchMenuContainer = styled(SideBarContainer)`
     z-index: 2;
