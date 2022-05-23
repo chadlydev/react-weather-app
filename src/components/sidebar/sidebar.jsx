@@ -28,7 +28,7 @@ import weatherIconMapper from '../../helpers/weatherIconMapper';
 import dateToString from '../../helpers/dateToString';
 import DisplayTemp from '../../helpers/displayTemp';
 
-const Sidebar = () => {
+const SideBar = () => {
     const { toggle } = useContext(SearchMenuContext);
     const { set } = useContext(GeoLocationContext);
     const { fahrenheit } = useContext(TempMetricContext);
@@ -81,4 +81,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default SideBar;

@@ -1,5 +1,5 @@
 import { HomeContainer, MainContainer } from './home.styles';
-import Sidebar from '../../components/sideBar/sideBar';
+import SideBar from '../../components/SideBar/SideBar';
 import TabMenu from '../../components/tabMenu/tabMenu';
 import Highlights from '../../components/highlights/highlights';
 import SearchMenu from '../../components/searchMenu/searchMenu';
@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <HomeContainer>
             {searchMenu && <SearchMenu />}
-            <Sidebar />
+            <SideBar />
             <MainContainer>
                 <TabMenu />
                 <Highlights />
