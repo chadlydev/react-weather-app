@@ -18,6 +18,7 @@ const SearchMenu = () => {
     const { toggle } = useContext(SearchMenuContext);
     const cityList = require('../../assets/city.list.min.json');
     const [cities, setCities] = useState([]);
+    // const [error, setError] = useState(false);
 
     useEffect(() => {
         cityList.map(city => {
@@ -56,6 +57,12 @@ const SearchMenu = () => {
                                     }))
                                 );
                             }
+
+                            // if (value.length >= 4 && cities === []) {
+                            //     setError(true);
+                            // }
+
+                            // console.log(error);
                         }
                     }}
                 />

@@ -1,8 +1,0 @@
-/*
-1. location / setLocation
-
-2. handleSearch > setLocation
-
-3. weatherData / setWeatherData ({location})
-
-*/
