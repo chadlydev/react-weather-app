@@ -5,8 +5,7 @@ export const SideBarContainer = styled(FlexColumn)`
     min-width: 100vw;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
-    min-height: 100vh;
-    max-height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
     align-items: center;
     justify-content: space-between;
 
