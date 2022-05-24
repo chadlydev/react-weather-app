@@ -11,18 +11,16 @@ import {
 
 import { ResultText } from '../../styles/typography';
 import { SearchButton } from '../../styles/buttons';
-import capFirstLetter from '../../helpers/capFirstLetter';
 
 const SearchMenu = () => {
     const { set } = useContext(LocationContext);
     const { toggle } = useContext(SearchMenuContext);
     const cityList = require('../../assets/city.list.min.json');
     const [cities, setCities] = useState([]);
-    // const [error, setError] = useState(false);
 
     useEffect(() => {
         cityList.map(city => {
-            city.description = `${capFirstLetter(city.name)}${
+            city.description = `${city.name.toLowerCase()}${
                 city.state ? `, ${city.state}` : ''
             }, ${city.country}`;
             return city;
@@ -42,14 +40,14 @@ const SearchMenu = () => {
                     placeholder='&#128269; Search location'
                     onSelect={e => {
                         if (e.target.value) {
-                            const value = capFirstLetter(e.target.value);
+                            const value = e.target.value.toLowerCase();
 
                             if (value.length >= 4) {
                                 const possibleCities = cityList
                                     .filter(city =>
                                         city.description.includes(value)
                                     )
-                                    .slice(0, 13);
+                                    .slice(0, 8);
                                 setCities(
                                     possibleCities.map(city => ({
                                         description: city.description,
@@ -57,19 +55,13 @@ const SearchMenu = () => {
                                     }))
                                 );
                             }
-
-                            // if (value.length >= 4 && cities === []) {
-                            //     setError(true);
-                            // }
-
-                            // console.log(error);
                         }
                     }}
                 />
                 <SearchButton type='submit'>Search</SearchButton>
             </FormContainer>
             <ResultsContainer>
-                {cities.slice(0, 13).map(city => {
+                {cities.slice(0, 8).map(city => {
                     return (
                         <ResultText
                             onClick={() => {

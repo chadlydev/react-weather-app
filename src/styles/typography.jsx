@@ -88,6 +88,7 @@ export const Percentage = styled(SidebarMetric)`
 export const ResultText = styled.span`
     font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     text-align: start;
+    text-transform: capitalize;
     width: 100%;
     padding: 1rem 0.5rem;
     border: 1px solid transparent;

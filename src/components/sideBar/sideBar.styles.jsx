@@ -5,12 +5,13 @@ export const SideBarContainer = styled(FlexColumn)`
     min-width: 100vw;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
+    height: 100vh;
     min-height: -webkit-fill-available;
     align-items: center;
     justify-content: space-between;
 
     @media screen and (min-width: 43rem) {
-        min-height: 70vh;
+        max-height: 70vh;
     }
 
     @media screen and (min-width: 62rem) {
