@@ -7,9 +7,10 @@ export const SearchMenuContainer = styled(SideBarContainer)`
     position: absolute;
     justify-content: flex-start;
     gap: 2rem;
+    height: 100vh;
 
     @media screen and (min-width: 43rem) {
-        height: 70vh;
+        height: 75vh;
     }
 
     @media screen and (min-width: 62rem) {

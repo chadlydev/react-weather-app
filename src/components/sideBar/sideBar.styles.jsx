@@ -11,7 +11,7 @@ export const SideBarContainer = styled(FlexColumn)`
     justify-content: space-between;
 
     @media screen and (min-width: 43rem) {
-        max-height: 70vh;
+        height: 75vh;
     }
 
     @media screen and (min-width: 62rem) {
