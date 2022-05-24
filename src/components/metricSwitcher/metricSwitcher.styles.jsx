@@ -53,6 +53,10 @@ export const SwitcherStyle = createGlobalStyle`
         width: 2.5rem;
         height: 1.375rem;
     }
+
+	&:hover {
+        background: ${props => props.theme.primaryBackgroundHover};
+    }
 }
 
 .switch-btn::after {

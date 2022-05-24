@@ -32,11 +32,21 @@ export const TabLink = styled(NavLink)`
     font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
     font-weight: 500;
     text-decoration: none;
+
+    &:hover {
+        transition: all 0.1s;
+        border-bottom: 2px solid ${props => props.theme.secondaryText};
+    }
 `;
 
 export const Title = styled.h2`
     color: ${props => props.theme.secondaryBackground};
     font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+`;
+
+export const LoadingText = styled(Title)`
+    font-weight: 500;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
 `;
 
 // -------------------- WEATHER DETAILS
@@ -107,5 +117,16 @@ export const ResultText = styled.span`
         position: absolute;
         right: 1rem;
         font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+    }
+`;
+
+export const BackText = styled.span`
+    /* color: ${props => props.theme.borderColor}; */
+    /* text-transform: uppercase;
+    letter-spacing: 4px; */
+
+    &:before {
+        content: ' \\2190';
+        padding-right: 6px;
     }
 `;

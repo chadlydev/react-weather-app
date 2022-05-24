@@ -7,10 +7,12 @@ import {
     SearchInput,
     SearchMenuContainer,
     ResultsContainer,
+    Wrapper,
+    BackButtonContainer,
 } from './searchMenu.styles';
 
-import { ResultText } from '../../styles/typography';
-import { SearchButton } from '../../styles/buttons';
+import { BackText, ResultText } from '../../styles/typography';
+import { SearchButton, BackButton } from '../../styles/buttons';
 
 const SearchMenu = () => {
     const { set } = useContext(LocationContext);
@@ -27,54 +29,67 @@ const SearchMenu = () => {
         });
     }, []);
 
-    function onFormSubmit(e) {
+    const onFormSubmit = e => {
         e.preventDefault();
         set(cities[0].description);
         toggle();
-    }
+    };
+
+    const closeMenu = () => {
+        toggle();
+    };
 
     return (
         <SearchMenuContainer>
-            <FormContainer onSubmit={onFormSubmit}>
-                <SearchInput
-                    placeholder='&#128269; Search location'
-                    onSelect={e => {
-                        if (e.target.value) {
-                            const value = e.target.value.toLowerCase();
+            <Wrapper>
+                <FormContainer onSubmit={onFormSubmit}>
+                    <SearchInput
+                        placeholder='&#128269; Search location'
+                        onSelect={e => {
+                            if (e.target.value) {
+                                const value = e.target.value.toLowerCase();
 
-                            if (value.length >= 4) {
-                                const possibleCities = cityList
-                                    .filter(city =>
-                                        city.description.includes(value)
-                                    )
-                                    .slice(0, 8);
-                                setCities(
-                                    possibleCities.map(city => ({
-                                        description: city.description,
-                                        id: city.id,
-                                    }))
-                                );
+                                if (value.length >= 2) {
+                                    const possibleCities = cityList
+                                        .filter(city =>
+                                            city.description.includes(value)
+                                        )
+                                        .slice(0, 8);
+                                    setCities(
+                                        possibleCities.map(city => ({
+                                            description: city.description,
+                                            id: city.id,
+                                        }))
+                                    );
+                                } else if (value.length < 2) {
+                                    setCities([]);
+                                }
                             }
-                        }
-                    }}
-                />
-                <SearchButton type='submit'>Search</SearchButton>
-            </FormContainer>
-            <ResultsContainer>
-                {cities.slice(0, 8).map(city => {
-                    return (
-                        <ResultText
-                            onClick={() => {
-                                set(city.description);
-                                toggle();
-                            }}
-                            key={city.id}
-                        >
-                            {city.description}
-                        </ResultText>
-                    );
-                })}
-            </ResultsContainer>
+                        }}
+                    />
+                    <SearchButton type='submit'>Search</SearchButton>
+                </FormContainer>
+                <ResultsContainer>
+                    {cities.map(city => {
+                        return (
+                            <ResultText
+                                onClick={() => {
+                                    set(city.description);
+                                    toggle();
+                                }}
+                                key={city.id}
+                            >
+                                {city.description}
+                            </ResultText>
+                        );
+                    })}
+                </ResultsContainer>
+            </Wrapper>
+            <BackButtonContainer>
+                <BackButton onClick={closeMenu}>
+                    <BackText>Back</BackText>
+                </BackButton>
+            </BackButtonContainer>
         </SearchMenuContainer>
     );
 };

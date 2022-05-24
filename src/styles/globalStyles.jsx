@@ -4,11 +4,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Theme = {
     primaryBackground: '#E7E7EB',
+    primaryBackgroundHover: '#E7E7EB99',
     secondaryBackground: '#1E213A',
     primaryText: '#E7E7EB',
     secondaryText: '#A09FB1',
     primaryButton: '#6E707A',
+    primaryButtonHover: '#6e707a99',
     secondaryButton: '#3C47E9',
+    secondaryButtonHover: '#3C47E999',
     borderColor: '#616475',
     yellow: '#FFEC65',
 };

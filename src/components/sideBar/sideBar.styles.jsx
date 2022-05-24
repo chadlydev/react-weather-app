@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { Flex, FlexColumn } from '../../styles/globalStyles';
 
 export const SideBarContainer = styled(FlexColumn)`
-    min-width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
-    height: 100vh;
     min-height: -webkit-fill-available;
     align-items: center;
     justify-content: space-between;
@@ -15,11 +15,11 @@ export const SideBarContainer = styled(FlexColumn)`
     }
 
     @media screen and (min-width: 62rem) {
+        height: 100vh;
         min-width: clamp(27.5rem, 30vw, 30rem);
         padding: 2.75rem;
         position: fixed;
         justify-content: space-between;
-        min-height: 100%;
     }
 `;
 

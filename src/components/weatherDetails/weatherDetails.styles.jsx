@@ -21,6 +21,14 @@ export const TabCard = styled(Card)`
     gap: 0.5rem;
 `;
 
+export const LoadingContainer = styled(TabCard)`
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    justify-content: center;
+    align-items: flex-start;
+`;
+
 export const TabContainer = styled(Grid)`
     grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
     grid-gap: 1.75rem;

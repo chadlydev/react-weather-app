@@ -9,10 +9,24 @@ export const Button = styled.button`
     border: none;
     cursor: pointer;
     z-index: 1;
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: ${props => props.theme.primaryButtonHover};
+    }
 `;
 
 export const SearchButton = styled(Button)`
     background-color: ${props => props.theme.secondaryButton};
+
+    &:hover {
+        background-color: ${props => props.theme.secondaryButtonHover};
+    }
+`;
+
+export const BackButton = styled(Button)`
+    align-self: flex-end;
+    justify-self: flex-end;
 `;
 
 export const RoundButton = styled.div`
@@ -26,10 +40,15 @@ export const RoundButton = styled.div`
     padding: 0.25rem;
     cursor: pointer;
     z-index: 1;
+    transition: all ease 0.3s;
 
     svg {
         width: 36.38px;
         height: 42.14px;
+    }
+
+    &:hover {
+        background-color: ${props => props.theme.primaryButtonHover};
     }
 
     @media screen and (min-width: 43rem) {
