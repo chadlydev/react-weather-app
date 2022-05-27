@@ -54,7 +54,7 @@ const SearchMenu = () => {
                                         .filter(city =>
                                             city.description.includes(value)
                                         )
-                                        .slice(0, 8);
+                                        .slice(0, 7);
                                     setCities(
                                         possibleCities.map(city => ({
                                             description: city.description,

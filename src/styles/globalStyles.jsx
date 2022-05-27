@@ -24,12 +24,17 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    html {
+      height: -webkit-fill-available;
+    }
+
     body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
       background-color: ${props => props.theme.primaryBackground};
       color: ${props => props.theme.primaryText};
+      height: -webkit-fill-available;
 }
 
 a.active {

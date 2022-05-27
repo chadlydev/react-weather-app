@@ -6,12 +6,11 @@ export const SideBarContainer = styled(FlexColumn)`
     height: 100vh;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
-    min-height: -webkit-fill-available;
     align-items: center;
     justify-content: space-between;
 
     @media screen and (min-width: 43rem) {
-        height: 75vh;
+        height: 70vh;
     }
 
     @media screen and (min-width: 62rem) {
@@ -19,7 +18,6 @@ export const SideBarContainer = styled(FlexColumn)`
         min-width: clamp(27.5rem, 30vw, 30rem);
         padding: 2.75rem;
         position: fixed;
-        justify-content: space-between;
     }
 `;
 
@@ -47,9 +45,9 @@ export const DescContainer = styled(FlexColumn)`
 
 export const DateLocationContainer = styled(FlexColumn)`
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     @media screen and (min-width: 43rem) {
-        margin-top: 6rem;
+        margin-top: 2rem;
     }
 `;
 

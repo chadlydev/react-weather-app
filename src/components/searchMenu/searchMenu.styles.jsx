@@ -4,15 +4,16 @@ import { SideBarContainer } from '../sideBar/sideBar.styles';
 
 export const SearchMenuContainer = styled(SideBarContainer)`
     width: 100%;
-    min-height: 100vh;
     position: absolute;
     z-index: 2;
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
 
+    /* background-color: #333; */
+
     @media screen and (min-width: 43rem) {
-        min-height: 75vh;
+        height: 70vh;
     }
 
     @media screen and (min-width: 62rem) {
@@ -65,9 +66,11 @@ export const SearchIconContainer = styled.div`
 `;
 
 export const BackButtonContainer = styled(Flex)`
-    /* border-top: 1px solid ${props => props.theme.borderColor}; */
+    /* position: absolute;
+    bottom: 8rem;
+    right: 2.375rem; */
     justify-content: flex-end;
     align-items: center;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     width: 100%;
 `;
