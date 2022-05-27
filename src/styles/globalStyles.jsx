@@ -34,7 +34,8 @@ export const GlobalStyle = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
       background-color: ${props => props.theme.primaryBackground};
       color: ${props => props.theme.primaryText};
-      height: -webkit-fill-available;
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
 }
 
 a.active {
