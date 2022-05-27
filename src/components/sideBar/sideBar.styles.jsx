@@ -4,13 +4,15 @@ import { Flex, FlexColumn } from '../../styles/globalStyles';
 export const SideBarContainer = styled(FlexColumn)`
     max-width: 100vw;
     height: 100vh;
+    max-height: -webkit-fill-available;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 
     @media screen and (min-width: 43rem) {
-        height: 70vh;
+        /* height: 70vh; */
     }
 
     @media screen and (min-width: 62rem) {
