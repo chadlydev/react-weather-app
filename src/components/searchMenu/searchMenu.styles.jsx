@@ -9,10 +9,8 @@ export const SearchMenuContainer = styled(SideBarContainer)`
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
-    height: 100vh;
-    max-height: -webkit-fill-available;
-
-    /* background-color: #333; */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 
     @media screen and (min-width: 43rem) {
         /* height: 70vh; */

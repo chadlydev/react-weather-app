@@ -3,8 +3,8 @@ import { Flex, FlexColumn } from '../../styles/globalStyles';
 
 export const SideBarContainer = styled(FlexColumn)`
     max-width: 100vw;
-    height: 100vh;
-    max-height: -webkit-fill-available;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     background-color: ${props => props.theme.secondaryBackground};
     padding: 2.375rem;
     align-items: center;
