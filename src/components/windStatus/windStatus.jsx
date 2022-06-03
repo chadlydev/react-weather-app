@@ -8,6 +8,8 @@ import { WindDirectionContainer } from './windStatus.styles';
 
 import { HighlightsCard } from '../highlights/highlights.styles';
 
+import { motion } from 'framer-motion';
+
 import {
     CardTitle,
     HighlightsCardInfo,
@@ -21,7 +23,15 @@ const WindStatus = () => {
     const { wind } = weatherData;
 
     return (
-        <HighlightsCard>
+        <HighlightsCard
+            as={motion.div}
+            initial={{
+                opacity: 0,
+                translateX: -50,
+            }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 0.2, delay: 1.4 }}
+        >
             <CardTitle>Wind status</CardTitle>
             <HighlightsCardInfo>
                 {wind && windSpeedToKm(wind.speed)}

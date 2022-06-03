@@ -15,12 +15,22 @@ import { useContext } from 'react';
 import { WeatherDataContext } from '../../context/weatherData/weatherData.context';
 import ProgressBar from '../progressBar/ProgressBar';
 
+import { motion } from 'framer-motion';
+
 const Humidity = () => {
     const { weatherData } = useContext(WeatherDataContext);
     const { main } = weatherData;
 
     return (
-        <HighlightsCard>
+        <HighlightsCard
+            as={motion.div}
+            initial={{
+                opacity: 0,
+                translateX: -50,
+            }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 0.2, delay: 1.5 }}
+        >
             <CardTitle>Humidity</CardTitle>
             <HighlightsCardInfo>
                 {main && main.humidity}

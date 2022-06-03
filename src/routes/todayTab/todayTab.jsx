@@ -58,7 +58,7 @@ const TodayTab = () => {
                                 translateX: -50,
                             }}
                             animate={{ opacity: 1, translateX: 0 }}
-                            transition={{ duration: 0.2, delay: i * 0.1 }}
+                            transition={{ duration: 0.2, delay: 0.4 + i * 0.1 }}
                         >
                             <WeatherDetails
                                 timestamp={timeToString(hour.dt)}
